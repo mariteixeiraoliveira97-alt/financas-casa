@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Finanças">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2563eb">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Finanças da Casa</title>
+<style>
+:root{
+  --bg:#f2f4f7; --card:#ffffff; --text:#1a1d29; --muted:#6b7280; --border:#e5e7eb;
+  --primary:#2563eb; --primary-d:#1d4ed8; --green:#16a34a; --red:#dc2626; --orange:#d97706;
+  --nav-bg:#ffffff;
+  box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --card:#1a1d24; --text:#f2f3f5; --muted:#9aa1ac; --border:#2a2d36; --nav-bg:#15171d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --card:#1a1d24; --text:#f2f3f5; --muted:#9aa1ac; --border:#2a2d36; --nav-bg:#15171d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);height:100%;padding-bottom:calc(70px + env(safe-area-inset-bottom,0px));}
+header.top{position:sticky;top:0;z-index:10;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px;display:flex;align-items:center;justify-content:center;gap:14px;}
+header.top button{background:none;border:none;color:var(--primary);font-size:20px;padding:4px 10px;cursor:pointer;}
+header.top .mlabel{font-weight:700;font-size:16px;min-width:150px;text-align:center;}
+main{max-width:520px;margin:0 auto;padding:14px 12px 20px;}
+.view{display:none;} .view.active{display:block;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;}
+.card h3{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+.big{font-size:26px;font-weight:800;}
+.row{display:flex;justify-content:space-between;align-items:center;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;}
+.stat .lbl{font-size:12px;color:var(--muted);}
+.stat .val{font-size:18px;font-weight:700;margin-top:2px;}
+.green{color:var(--green);} .red{color:var(--red);} .orange{color:var(--orange);}
+.btn{display:block;width:100%;background:var(--primary);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:700;margin-top:10px;cursor:pointer;}
+.btn.secondary{background:var(--border);color:var(--text);}
+.btn.danger{background:var(--red);}
+.list-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);gap:8px;}
+.list-item:last-child{border-bottom:none;}
+.li-name{font-weight:600;font-size:15px;}
+.li-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.tag{font-size:10px;padding:2px 7px;border-radius:20px;background:var(--border);color:var(--muted);font-weight:700;margin-left:6px;}
+.tag.fixa{background:#dbeafe;color:#1d4ed8;} .tag.variavel{background:#fef3c7;color:#b45309;}
+.pill{border:none;border-radius:20px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer;}
+.pill.paid{background:#dcfce7;color:#16a34a;} .pill.unpaid{background:var(--border);color:var(--muted);}
+.fab{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--primary);color:#fff;width:54px;height:54px;border-radius:50%;border:none;font-size:26px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:40;cursor:pointer;}
+nav.bottom{position:fixed;bottom:0;left:0;right:0;background:var(--nav-bg);border-top:1px solid var(--border);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:30;}
+nav.bottom button{flex:1;background:none;border:none;padding:10px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);font-size:11px;cursor:pointer;}
+nav.bottom button.active{color:var(--primary);}
+nav.bottom .ic{font-size:20px;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;z-index:100;}
+.overlay.show{display:flex;}
+.sheet{background:var(--card);width:100%;max-height:88vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px));}
+.sheet h2{margin:0 0 12px;font-size:18px;}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px;font-weight:600;}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;}
+.seg{display:flex;gap:8px;margin-top:4px;}
+.seg button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-weight:700;cursor:pointer;}
+.seg button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
+.close-x{position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;}
+.sheet{position:relative;}
+.menu-item{display:flex;justify-content:space-between;align-items:center;padding:16px 14px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;cursor:pointer;font-weight:700;}
+.back{background:none;border:none;color:var(--primary);font-size:15px;font-weight:700;margin-bottom:10px;cursor:pointer;padding:4px 0;}
+.alert{background:#fff7ed;border:1px solid #fdba74;color:#9a3412;border-radius:12px;padding:10px 12px;font-size:13px;margin-bottom:10px;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .alert{background:#3a2412;border-color:#7c4a12;color:#fdba74;}}
+:root[data-theme="dark"] .alert{background:#3a2412;border-color:#7c4a12;color:#fdba74;}
+.empty{color:var(--muted);font-size:14px;text-align:center;padding:20px 0;}
+.card-color{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <button id="prevM">‹</button>
+  <div class="mlabel" id="mLabel">—</div>
+  <button id="nextM">›</button>
+</header>
+
+<main>
+  <div class="view active" id="v-dashboard"></div>
+  <div class="view" id="v-despesas"></div>
+  <div class="view" id="v-cartoes"></div>
+  <div class="view" id="v-mais"></div>
+</main>
+
+<button class="fab" id="fab">+</button>
+
+<nav class="bottom">
+  <button data-v="dashboard" class="active"><span class="ic">🏠</span>Início</button>
+  <button data-v="despesas"><span class="ic">🧾</span>Despesas</button>
+  <button data-v="cartoes"><span class="ic">💳</span>Cartões</button>
+  <button data-v="mais"><span class="ic">⚙️</span>Config.</button>
+</nav>
+
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+
+<script>
+const KEY='financas-casa-v1';
+function uid(){return Math.random().toString(36).slice(2,10);}
+function load(){
+  try{const raw=localStorage.getItem(KEY); return raw?JSON.parse(raw):null;}catch(e){return null;}
+}
+function save(){
+  try{localStorage.setItem(KEY, JSON.stringify(state));}catch(e){console.error('storage error',e);}
+}
+let state = load() || { incomes:{}, cards:[], expenses:[], subscriptions:[], installments:[] };
+function todayKey(){const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');}
+let currentMonth = todayKey();
+let despesasSub = 'casa';
+function setDespesasSub(which){ despesasSub=which; renderDespesas(); }
+function monthIndex(k){const [y,m]=k.split('-').map(Number); return y*12+(m-1);}
+function keyFromIndex(idx){const y=Math.floor(idx/12); const m=(idx%12)+1; return y+'-'+String(m).padStart(2,'0');}
+function addMonths(k,n){return keyFromIndex(monthIndex(k)+n);}
+const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+function monthLabel(k){const [y,m]=k.split('-').map(Number); return MESES[m-1]+' '+y;}
+function fmt(n){n=Number(n)||0; return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+function ensureIncome(k){
+  if(state.incomes[k]==null){
+    const prev=addMonths(k,-1);
+    state.incomes[k]= state.incomes[prev]!=null? state.incomes[prev] : 0;
+  }
+}
+
+// ---- effective values ----
+function expenseValue(exp,mkey){
+  if(mkey < exp.mesInicio) return null;
+  if(exp.tipo==='fixa'){
+    return (exp.overrides && exp.overrides[mkey]!=null) ? exp.overrides[mkey] : exp.valor;
+  }
+  return (exp.overrides && exp.overrides[mkey]!=null) ? exp.overrides[mkey] : null;
+}
+function expensesActive(mkey){ return state.expenses.filter(e=>mkey>=e.mesInicio); }
+function subActive(sub,mkey){ return sub.ativa && mkey>=sub.mesCriacao; }
+function instInfo(inst,mkey){
+  const idx = monthIndex(mkey) - monthIndex(inst.startKey);
+  if(idx<0 || idx>=inst.total) return null;
+  return {number:idx+1, remaining: inst.total-idx};
+}
+function totalDespesas(mkey){
+  return expensesActive(mkey).reduce((s,e)=>{const v=expenseValue(e,mkey); return s+(v||0);},0);
+}
+function totalAssinaturas(mkey){
+  return state.subscriptions.filter(s=>subActive(s,mkey)).reduce((s,x)=>s+Number(x.valor||0),0);
+}
+function totalParcelas(mkey){
+  return state.installments.reduce((s,i)=>{const info=instInfo(i,mkey); return s+(info?Number(i.valorParcela):0);},0);
+}
+function cardComprometido(cardId,mkey){
+  let t=0;
+  expensesActive(mkey).forEach(e=>{ if(e.forma==='Crédito' && e.cartaoId===cardId){const v=expenseValue(e,mkey); t+=v||0;} });
+  state.subscriptions.forEach(s=>{ if(subActive(s,mkey) && s.forma==='Crédito' && s.cartaoId===cardId) t+=Number(s.valor||0); });
+  state.installments.forEach(i=>{ if(i.cartaoId===cardId){const info=instInfo(i,mkey); if(info) t+=Number(i.valorParcela);} });
+  return t;
+}
+
+// ---- navigation ----
+document.getElementById('prevM').onclick=()=>{currentMonth=addMonths(currentMonth,-1); renderAll();};
+document.getElementById('nextM').onclick=()=>{currentMonth=addMonths(currentMonth,1); renderAll();};
+document.querySelectorAll('nav.bottom button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('nav.bottom button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('v-'+b.dataset.v).classList.add('active');
+    document.getElementById('fab').style.display = b.dataset.v==='mais' ? 'none':'flex';
+  };
+});
+document.getElementById('fab').onclick=()=>{ openAddMenu(); };
+function openAddMenu(){
+  openSheet(`
+    <h2>O que deseja adicionar?</h2>
+    <button class="btn" onclick="openExpenseForm()">Despesa</button>
+    <button class="btn secondary" onclick="openSubForm()">Assinatura</button>
+    <button class="btn secondary" onclick="openInstForm()">Parcela</button>
+  `);
+}
+
+// ---- overlay/sheet helpers ----
+const overlay=document.getElementById('overlay'), sheet=document.getElementById('sheet');
+function openSheet(html){ sheet.innerHTML='<button class="close-x" onclick="closeSheet()">✕</button>'+html; overlay.classList.add('show'); }
+function closeSheet(){ overlay.classList.remove('show'); }
+overlay.onclick=(e)=>{ if(e.target===overlay) closeSheet(); };
+
+// ---- FORMS ----
+function cardOptions(sel){
+  return state.cards.map(c=>`<option value="${c.id}" ${sel===c.id?'selected':''}>${c.nome}</option>`).join('');
+}
+function openExpenseForm(edit){
+  const e = edit || {id:null,nome:'',valor:'',tipo:'fixa',forma:'PIX',cartaoId:'',mesInicio:currentMonth};
+  openSheet(`
+    <h2>${edit?'Editar':'Nova'} despesa</h2>
+    <label>Nome</label><input id="f-nome" value="${e.nome}" placeholder="Ex: Aluguel">
+    <label>Valor (R$)</label><input id="f-valor" type="number" step="0.01" value="${e.valor}">
+    <label>Tipo</label>
+    <div class="seg" id="f-tipo">
+      <button type="button" data-v="fixa" class="${e.tipo==='fixa'?'sel':''}">Fixa</button>
+      <button type="button" data-v="variavel" class="${e.tipo==='variavel'?'sel':''}">Variável</button>
+    </div>
+    <label>Forma de pagamento</label>
+    <select id="f-forma">
+      ${['PIX','Débito','Crédito'].map(o=>`<option ${e.forma===o?'selected':''}>${o}</option>`).join('')}
+    </select>
+    <div id="f-cartao-wrap" style="display:${e.forma==='Crédito'?'block':'none'}">
+      <label>Cartão</label><select id="f-cartao">${cardOptions(e.cartaoId)}</select>
+    </div>
+    <label>Mês de início</label><input id="f-mes" value="${e.mesInicio}" placeholder="AAAA-MM">
+    <button class="btn" onclick="saveExpense('${e.id||''}')">Salvar</button>
+    ${edit?'<button class="btn danger" onclick="deleteExpense(\''+e.id+'\')">Excluir despesa</button>':''}
+  `);
+  document.getElementById('f-forma').onchange=(ev)=>{ document.getElementById('f-cartao-wrap').style.display = ev.target.value==='Crédito'?'block':'none'; };
+  document.querySelectorAll('#f-tipo button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#f-tipo button').forEach(x=>x.classList.remove('sel')); b.classList.add('sel');});
+}
+function saveExpense(id){
+  const nome=document.getElementById('f-nome').value.trim();
+  const valor=parseFloat(document.getElementById('f-valor').value)||0;
+  const tipo=document.querySelector('#f-tipo button.sel').dataset.v;
+  const forma=document.getElementById('f-forma').value;
+  const cartaoId= forma==='Crédito' ? document.getElementById('f-cartao').value : '';
+  const mesInicio=document.getElementById('f-mes').value.trim()||currentMonth;
+  if(!nome){alert('Informe o nome.'); return;}
+  if(id){
+    const e=state.expenses.find(x=>x.id===id);
+    Object.assign(e,{nome,valor,tipo,forma,cartaoId,mesInicio});
+  } else {
+    state.expenses.push({id:uid(),nome,valor,tipo,forma,cartaoId,mesInicio,pago:{},overrides:{}});
+  }
+  save(); closeSheet(); renderAll();
+}
+function deleteExpense(id){ state.expenses=state.expenses.filter(x=>x.id!==id); save(); closeSheet(); renderAll(); }
+function editExpenseValueMonth(id){
+  const e=state.expenses.find(x=>x.id===id);
+  const cur = expenseValue(e,currentMonth);
+  openSheet(`
+    <h2>${e.nome} — ${monthLabel(currentMonth)}</h2>
+    <label>Valor deste mês</label>
+    <input id="f-mval" type="number" step="0.01" value="${cur||''}">
+    <button class="btn" onclick="saveMonthValue('${id}')">Salvar</button>
+  `);
+}
+function saveMonthValue(id){
+  const e=state.expenses.find(x=>x.id===id);
+  const v=parseFloat(document.getElementById('f-mval').value);
+  if(!e.overrides) e.overrides={};
+  e.overrides[currentMonth]= isNaN(v)?null:v;
+  save(); closeSheet(); renderAll();
+}
+function togglePaid(id){
+  const e=state.expenses.find(x=>x.id===id);
+  if(!e.pago) e.pago={};
+  e.pago[currentMonth]=!e.pago[currentMonth];
+  save(); renderAll();
+}
+
+function openCardForm(edit){
+  const c=edit||{id:null,nome:'',limite:'',dia:'',cor:'#2563eb'};
+  openSheet(`
+    <h2>${edit?'Editar':'Novo'} cartão</h2>
+    <label>Nome</label><input id="f-nome" value="${c.nome}" placeholder="Ex: Nubank">
+    <label>Limite (R$)</label><input id="f-limite" type="number" step="0.01" value="${c.limite}">
+    <label>Dia de vencimento</label><input id="f-dia" type="number" min="1" max="31" value="${c.dia}">
+    <label>Cor</label><input id="f-cor" type="color" value="${c.cor}">
+    <button class="btn" onclick="saveCard('${c.id||''}')">Salvar</button>
+    ${edit?'<button class="btn danger" onclick="deleteCard(\''+c.id+'\')">Excluir cartão</button>':''}
+  `);
+}
+function saveCard(id){
+  const nome=document.getElementById('f-nome').value.trim();
+  const limite=parseFloat(document.getElementById('f-limite').value)||0;
+  const dia=document.getElementById('f-dia').value;
+  const cor=document.getElementById('f-cor').value;
+  if(!nome){alert('Informe o nome.'); return;}
+  if(id){ Object.assign(state.cards.find(x=>x.id===id),{nome,limite,dia,cor}); }
+  else state.cards.push({id:uid(),nome,limite,dia,cor});
+  save(); closeSheet(); renderAll();
+}
+function deleteCard(id){ state.cards=state.cards.filter(x=>x.id!==id); save(); closeSheet(); renderAll(); }
+
+function openSubForm(edit){
+  const s=edit||{id:null,nome:'',valor:'',forma:'Crédito',cartaoId:'',dia:'',ativa:true,mesCriacao:currentMonth};
+  openSheet(`
+    <h2>${edit?'Editar':'Nova'} assinatura</h2>
+    <label>Nome</label><input id="f-nome" value="${s.nome}" placeholder="Ex: Meli+">
+    <label>Valor mensal (R$)</label><input id="f-valor" type="number" step="0.01" value="${s.valor}">
+    <label>Forma de pagamento</label>
+    <select id="f-forma">${['PIX','Débito','Crédito'].map(o=>`<option ${s.forma===o?'selected':''}>${o}</option>`).join('')}</select>
+    <div id="f-cartao-wrap" style="display:${s.forma==='Crédito'?'block':'none'}">
+      <label>Cartão</label><select id="f-cartao">${cardOptions(s.cartaoId)}</select>
+    </div>
+    <label>Dia do vencimento</label><input id="f-dia" type="number" min="1" max="31" value="${s.dia}">
+    <label>Status</label>
+    <div class="seg" id="f-ativa">
+      <button type="button" data-v="1" class="${s.ativa?'sel':''}">Ativa</button>
+      <button type="button" data-v="0" class="${!s.ativa?'sel':''}">Inativa</button>
+    </div>
+    <button class="btn" onclick="saveSub('${s.id||''}')">Salvar</button>
+    ${edit?'<button class="btn danger" onclick="deleteSub(\''+s.id+'\')">Excluir assinatura</button>':''}
+  `);
+  document.getElementById('f-forma').onchange=(ev)=>{ document.getElementById('f-cartao-wrap').style.display = ev.target.value==='Crédito'?'block':'none'; };
+  document.querySelectorAll('#f-ativa button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#f-ativa button').forEach(x=>x.classList.remove('sel')); b.classList.add('sel');});
+}
+function saveSub(id){
+  const nome=document.getElementById('f-nome').value.trim();
+  const valor=parseFloat(document.getElementById('f-valor').value)||0;
+  const forma=document.getElementById('f-forma').value;
+  const cartaoId= forma==='Crédito'? document.getElementById('f-cartao').value:'';
+  const dia=document.getElementById('f-dia').value;
+  const ativa=document.querySelector('#f-ativa button.sel').dataset.v==='1';
+  if(!nome){alert('Informe o nome.'); return;}
+  if(id){ Object.assign(state.subscriptions.find(x=>x.id===id),{nome,valor,forma,cartaoId,dia,ativa}); }
+  else state.subscriptions.push({id:uid(),nome,valor,forma,cartaoId,dia,ativa,mesCriacao:currentMonth});
+  save(); closeSheet(); renderAll();
+}
+function deleteSub(id){ state.subscriptions=state.subscriptions.filter(x=>x.id!==id); save(); closeSheet(); renderAll(); }
+
+function openInstForm(edit){
+  const i=edit||{id:null,descricao:'',valorParcela:'',total:'',restantes:'',forma:'Crédito',cartaoId:''};
+  openSheet(`
+    <h2>${edit?'Editar':'Nova'} parcela</h2>
+    <label>Descrição</label><input id="f-desc" value="${i.descricao}" placeholder="Ex: Exames">
+    <label>Valor da parcela (R$)</label><input id="f-valor" type="number" step="0.01" value="${i.valorParcela}">
+    <label>Número total de parcelas</label><input id="f-total" type="number" value="${i.total}">
+    <label>Parcelas restantes (a partir de ${monthLabel(currentMonth)})</label><input id="f-rest" type="number" value="${i.restantes}">
+    <label>Forma de pagamento</label>
+    <select id="f-forma">${['PIX','Débito','Crédito'].map(o=>`<option ${i.forma===o?'selected':''}>${o}</option>`).join('')}</select>
+    <div id="f-cartao-wrap" style="display:${i.forma==='Crédito'?'block':'none'}">
+      <label>Cartão utilizado</label><select id="f-cartao">${cardOptions(i.cartaoId)}</select>
+    </div>
+    <button class="btn" onclick="saveInst('${i.id||''}')">Salvar</button>
+    ${edit?'<button class="btn danger" onclick="deleteInst(\''+i.id+'\')">Excluir parcela</button>':''}
+  `);
+  document.getElementById('f-forma').onchange=(ev)=>{ document.getElementById('f-cartao-wrap').style.display = ev.target.value==='Crédito'?'block':'none'; };
+}
+function saveInst(id){
+  const descricao=document.getElementById('f-desc').value.trim();
+  const valorParcela=parseFloat(document.getElementById('f-valor').value)||0;
+  const total=parseInt(document.getElementById('f-total').value)||1;
+  const restantes=parseInt(document.getElementById('f-rest').value)||1;
+  const forma=document.getElementById('f-forma').value;
+  const cartaoId= forma==='Crédito' ? document.getElementById('f-cartao').value : '';
+  if(!descricao){alert('Informe a descrição.'); return;}
+  const startIdx = monthIndex(currentMonth) - (total - restantes);
+  const startKey = keyFromIndex(startIdx);
+  if(id){ Object.assign(state.installments.find(x=>x.id===id),{descricao,valorParcela,total,forma,cartaoId,startKey}); }
+  else state.installments.push({id:uid(),descricao,valorParcela,total,forma,cartaoId,startKey});
+  save(); closeSheet(); renderAll();
+}
+function deleteInst(id){ state.installments=state.installments.filter(x=>x.id!==id); save(); closeSheet(); renderAll(); }
+
+function editIncome(){
+  ensureIncome(currentMonth);
+  openSheet(`
+    <h2>Renda — ${monthLabel(currentMonth)}</h2>
+    <label>Renda total (R$)</label><input id="f-renda" type="number" step="0.01" value="${state.incomes[currentMonth]}">
+    <button class="btn" onclick="saveIncome()">Salvar</button>
+  `);
+}
+function saveIncome(){
+  state.incomes[currentMonth]=parseFloat(document.getElementById('f-renda').value)||0;
+  save(); closeSheet(); renderAll();
+}
+
+// ---- RENDER ----
+function alertsFor(mkey){
+  const alerts=[];
+  const renda=state.incomes[mkey]||0;
+  const desp=totalDespesas(mkey), ass=totalAssinaturas(mkey), parc=totalParcelas(mkey);
+  const comprometido=desp+ass+parc;
+  if(renda>0 && comprometido>renda) alerts.push(`As despesas deste mês (${fmt(comprometido)}) já ultrapassam a renda.`);
+  else if(renda>0 && comprometido/renda>0.85) alerts.push(`Este mês já está com ${fmt(comprometido)} comprometidos, próximo da renda.`);
+  state.cards.forEach(c=>{
+    const cc=cardComprometido(c.id,mkey);
+    if(c.limite>0 && cc/c.limite>0.85) alerts.push(`O cartão ${c.nome} está com pouco limite disponível.`);
+  });
+  state.installments.forEach(i=>{
+    const info=instInfo(i,mkey);
+    if(info && info.remaining<=1) alerts.push(`A parcela "${i.descricao}" está chegando ao fim.`);
+  });
+  expensesActive(mkey).forEach(e=>{
+    if(e.tipo==='variavel' && expenseValue(e,mkey)==null) alerts.push(`A despesa variável "${e.nome}" ainda não tem valor preenchido este mês.`);
+  });
+  return alerts;
+}
+
+function renderDashboard(){
+  ensureIncome(currentMonth);
+  const renda=state.incomes[currentMonth]||0;
+  const desp=totalDespesas(currentMonth), ass=totalAssinaturas(currentMonth), parc=totalParcelas(currentMonth);
+  const comprometido=desp+ass+parc;
+  const disponivel=renda-comprometido;
+  const alerts=alertsFor(currentMonth);
+  document.getElementById('v-dashboard').innerHTML=`
+    ${alerts.map(a=>`<div class="alert">${a}</div>`).join('')}
+    <div class="card" onclick="editIncome()">
+      <h3>Renda total</h3>
+      <div class="big">${fmt(renda)}</div>
+    </div>
+    <div class="grid2">
+      <div class="stat"><div class="lbl">Comprometido</div><div class="val orange">${fmt(comprometido)}</div></div>
+      <div class="stat"><div class="lbl">Disponível no mês</div><div class="val ${disponivel<0?'red':'green'}">${fmt(disponivel)}</div></div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="stat"><div class="lbl">Despesa mensal</div><div class="val">${fmt(desp)}</div></div>
+      <div class="stat"><div class="lbl">Assinaturas</div><div class="val">${fmt(ass)}</div></div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="stat"><div class="lbl">Parcelas</div><div class="val">${fmt(parc)}</div></div>
+      <div class="stat"><div class="lbl">Cartões</div><div class="val">${state.cards.length}</div></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h3>Meus cartões</h3>
+      ${state.cards.length? state.cards.map(c=>{
+        const cc=cardComprometido(c.id,currentMonth), disp=c.limite-cc;
+        return `<div class="list-item"><div><span class="card-color" style="background:${c.cor}"></span><span class="li-name">${c.nome}</span><div class="li-sub">Comprometido ${fmt(cc)}</div></div><div style="text-align:right"><div style="font-weight:700">${fmt(disp)}</div><div class="li-sub">disponível</div></div></div>`;
+      }).join('') : '<div class="empty">Nenhum cartão cadastrado.</div>'}
+    </div>
+  `;
+}
+
+function renderDespesas(){
+  const seg = `<div class="seg" style="margin-bottom:12px">
+    <button type="button" onclick="setDespesasSub('casa')" class="${despesasSub==='casa'?'sel':''}">Mensal</button>
+    <button type="button" onclick="setDespesasSub('assinaturas')" class="${despesasSub==='assinaturas'?'sel':''}">Assinaturas</button>
+    <button type="button" onclick="setDespesasSub('parcelas')" class="${despesasSub==='parcelas'?'sel':''}">Parcelas</button>
+  </div>`;
+  let body='';
+  if(despesasSub==='casa'){
+    const items=expensesActive(currentMonth);
+    body=`<div class="card"><h3>Despesa mensal — ${monthLabel(currentMonth)}</h3>
+    ${items.length? items.map(e=>{
+      const v=expenseValue(e,currentMonth);
+      const paid=e.pago && e.pago[currentMonth];
+      return `<div class="list-item">
+        <div onclick="openExpenseForm(state.expenses.find(x=>x.id==='${e.id}'))" style="flex:1">
+          <span class="li-name">${e.nome}</span><span class="tag ${e.tipo}">${e.tipo==='fixa'?'Fixa':'Variável'}</span>
+          <div class="li-sub">${e.forma}${e.cartaoId?(' · '+(state.cards.find(c=>c.id===e.cartaoId)||{}).nome||''):''}</div>
+        </div>
+        <div style="text-align:right">
+          ${v==null?`<button class="pill unpaid" onclick="editExpenseValueMonth('${e.id}')">Preencher</button>` : `
+            <div style="font-weight:700" onclick="editExpenseValueMonth('${e.id}')">${fmt(v)}</div>
+            <button class="pill ${paid?'paid':'unpaid'}" onclick="togglePaid('${e.id}')">${paid?'Pago':'Marcar pago'}</button>
+          `}
+        </div>
+      </div>`;
+    }).join('') : '<div class="empty">Nenhuma despesa cadastrada ainda.</div>'}
+    </div>
+    <button class="btn secondary" onclick="openExpenseForm()">+ Adicionar despesa</button>`;
+  } else if(despesasSub==='assinaturas'){
+    body=`<div class="card"><h3>Assinaturas</h3>
+    ${state.subscriptions.length? state.subscriptions.map(s=>`
+      <div class="list-item" onclick="openSubForm(state.subscriptions.find(x=>x.id==='${s.id}'))">
+        <div><span class="li-name">${s.nome}</span><span class="tag ${s.ativa?'fixa':''}">${s.ativa?'Ativa':'Inativa'}</span>
+        <div class="li-sub">${s.forma}${s.cartaoId?(' · '+(state.cards.find(c=>c.id===s.cartaoId)||{}).nome||''):''}</div></div>
+        <b>${fmt(s.valor)}</b>
+      </div>`).join('') : '<div class="empty">Nenhuma assinatura cadastrada.</div>'}
+    </div>
+    <button class="btn secondary" onclick="openSubForm()">+ Adicionar assinatura</button>`;
+  } else {
+    body=`<div class="card"><h3>Parcelas</h3>
+    ${state.installments.length? state.installments.map(i=>{
+      const info=instInfo(i,currentMonth);
+      const status = info? `${info.number}/${i.total} · ${info.remaining} restantes` : 'Encerrada';
+      return `<div class="list-item" onclick="openInstForm(Object.assign({},state.installments.find(x=>x.id==='${i.id}'),{restantes:${info?info.remaining:0}}))">
+        <div><span class="li-name">${i.descricao}</span><div class="li-sub">${status} · ${i.forma}${i.cartaoId?(' · '+(state.cards.find(c=>c.id===i.cartaoId)||{}).nome||''):''}</div></div>
+        <b>${fmt(i.valorParcela)}</b>
+      </div>`;
+    }).join('') : '<div class="empty">Nenhuma parcela cadastrada.</div>'}
+    </div>
+    <button class="btn secondary" onclick="openInstForm()">+ Adicionar parcela</button>`;
+  }
+  document.getElementById('v-despesas').innerHTML = seg + body;
+}
+
+function renderCartoes(){
+  const cardsHtml = state.cards.length ? state.cards.map(c=>{
+    const cc=cardComprometido(c.id,currentMonth), disp=c.limite-cc;
+    const exps = expensesActive(currentMonth).filter(e=>e.forma==='Crédito'&&e.cartaoId===c.id);
+    const subs = state.subscriptions.filter(s=>subActive(s,currentMonth)&&s.forma==='Crédito'&&s.cartaoId===c.id);
+    const insts = state.installments.filter(i=>i.cartaoId===c.id && instInfo(i,currentMonth));
+    return `<div class="card">
+      <div class="row">
+        <h3 style="margin:0"><span class="card-color" style="background:${c.cor}"></span>${c.nome}</h3>
+        <button class="pill unpaid" onclick="openCardForm(state.cards.find(x=>x.id==='${c.id}'))">Editar</button>
+      </div>
+      <div class="grid2" style="margin-top:8px">
+        <div class="stat"><div class="lbl">Limite</div><div class="val">${fmt(c.limite)}</div></div>
+        <div class="stat"><div class="lbl">Comprometido</div><div class="val orange">${fmt(cc)}</div></div>
+      </div>
+      <div class="stat" style="margin-top:8px"><div class="lbl">Disponível (limite, não é dinheiro)</div><div class="val ${disp<0?'red':'green'}">${fmt(disp)}</div></div>
+      ${(exps.length||subs.length||insts.length) ? `
+        <div style="margin-top:10px">
+          ${subs.map(s=>`<div class="list-item"><span>Assinatura: ${s.nome}</span><b>${fmt(s.valor)}</b></div>`).join('')}
+          ${insts.map(i=>{const info=instInfo(i,currentMonth); return `<div class="list-item"><span>Parcela: ${i.descricao} (${info.number}/${i.total})</span><b>${fmt(i.valorParcela)}</b></div>`;}).join('')}
+          ${exps.map(e=>`<div class="list-item"><span>Despesa: ${e.nome}</span><b>${fmt(expenseValue(e,currentMonth)||0)}</b></div>`).join('')}
+        </div>` : '<div class="empty">Sem lançamentos neste cartão.</div>'}
+    </div>`;
+  }).join('') : '<div class="card"><div class="empty">Nenhum cartão cadastrado.</div></div>';
+  document.getElementById('v-cartoes').innerHTML = cardsHtml + '<button class="btn secondary" onclick="openCardForm()">+ Adicionar cartão</button>';
+}
+
+function renderConfig(){
+  document.getElementById('v-mais').innerHTML=`
+    <div class="card"><h3>Configurações</h3>
+    <button class="btn secondary" onclick="exportData()">Exportar dados (JSON)</button>
+    <label style="margin-top:14px">Importar dados</label>
+    <input type="file" id="importFile" accept="application/json">
+    <button class="btn secondary" onclick="importData()">Importar arquivo selecionado</button>
+    <button class="btn danger" onclick="wipeData()">Apagar todos os dados</button>
+    </div>`;
+}
+function exportData(){
+  const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='financas-casa-backup.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+function importData(){
+  const inp=document.getElementById('importFile');
+  if(!inp.files[0]){alert('Selecione um arquivo.'); return;}
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      state = Object.assign({incomes:{},cards:[],expenses:[],subscriptions:[],installments:[]}, data);
+      save(); renderAll(); alert('Dados importados com sucesso.');
+    }catch(e){ alert('Arquivo inválido.'); }
+  };
+  reader.readAsText(inp.files[0]);
+}
+function wipeData(){
+  if(!confirm('Isso apagará todos os dados. Tem certeza?')) return;
+  state={incomes:{},cards:[],expenses:[],subscriptions:[],installments:[]};
+  save(); renderAll();
+}
+
+function renderAll(){
+  document.getElementById('mLabel').textContent = monthLabel(currentMonth);
+  renderDashboard(); renderDespesas(); renderCartoes(); renderConfig();
+}
+renderAll();
+</script>
+</body>
+</html>
